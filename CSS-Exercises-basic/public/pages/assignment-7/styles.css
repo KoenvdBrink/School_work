@@ -1,0 +1,13 @@
+/* === DO NOT TOUCH THIS PIECE === */
+body {
+    margin: 0;
+}
+
+.block {
+    width: 250px;
+    height: 250px;
+    background: lightblue;
+}
+/* === / === */
+
+/* Add your styles here */

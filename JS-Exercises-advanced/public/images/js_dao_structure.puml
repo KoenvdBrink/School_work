@@ -1,0 +1,32 @@
+@startuml
+
+skin rose
+
+hide circle
+
+package "Model Layer" {
+  Class Model
+}
+
+package "Service Layer" {
+  Abstract Dao <<Abstract>>
+  Class DaoImpl_1
+  Class DaoImpl_2
+  entity index
+  
+  index -UP-> DaoImpl_1 : daoImpl
+  
+  DaoImpl_1 -UP-|> Dao
+  DaoImpl_2 -UP-|> Dao
+  
+  note left of index:  daoImpl is a const\nthat will be assigned to\none of the DaoImpl classes.\nThe daoImpl than will be exported"
+}
+
+package "View Layer" {
+  Class View
+}
+
+Dao -left-> Model
+View .right.> index : import daoImpl
+
+@enduml

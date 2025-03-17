@@ -1,0 +1,83 @@
+<!--
+Assignment 4 (Other input types):
+
+There are 5 forms below, fix one problem in each of these forms.
+
+1a. Make sure the first form will submit to the following url "static/data.html"
+1b. Click submit and see if the data you send is displayed on the target page
+
+2a. Make sure you send a POST request (instead of the default GET request) when submitting the second form
+2b. Notice that the form-data is not included in the URL anymore with a POST request (maybe your last GET request is still visible in the URL)
+
+3a. Notice that in the third form, when you click on the email or phone field, you will get some suggestions,
+    this is because (in chrome) the suggestions feature is turned on automatically
+    (If you open it in a browser you use regularly)
+3b. Make sure autocomplete is turned off in the third form and reload the page.
+3c. Notice that these suggestions are now gone
+
+4a. Look at form 4 (You do not have to change anything to this form)
+4b. Notice if you fill in one of the fields the other one is also filled in automatically
+    (If you open it in a browser you use regularly)
+
+5. Add the correct encoding to the fifth form to send a file.
+
+-->
+
+<!-- Make changes to the code below -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Assignment-4</title>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Form 1</legend>
+        <label
+          >Some Text:
+          <textarea name="data">Default value</textarea>
+        </label>
+        <button>Submit!</button>
+      </fieldset>
+    </form>
+
+    <form>
+      <fieldset>
+        <legend>Form 2</legend>
+        <label>
+          Some input: <input name="myInput" value="Default value" />
+        </label>
+        <button>Submit!</button>
+      </fieldset>
+    </form>
+
+    <form>
+      <fieldset>
+        <legend>Form 3</legend>
+        <label> email: <input name="email" /> </label>
+        <label> phone: <input name="phone" /> </label>
+        <button>Submit!</button>
+      </fieldset>
+    </form>
+
+    <form>
+      <fieldset>
+        <legend>Form 4</legend>
+        <label> email: <input name="email" autocomplete="email" /> </label>
+        <label> phone: <input name="phone" autocomplete="tel" /> </label>
+        <button>Submit!</button>
+      </fieldset>
+    </form>
+
+    <form>
+      <fieldset>
+        <legend>Form 5</legend>
+        <label for="file">Bestand:</label>
+        <input id="file" type="file" name="file" />
+        <button>Submit!</button>
+      </fieldset>
+    </form>
+  </body>
+</html>

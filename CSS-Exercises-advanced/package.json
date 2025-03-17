@@ -1,0 +1,28 @@
+{
+  "name": "fep1-css02-01",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:cypress": "cypress open",
+    "test:eslint": "eslint src/**/*.js"
+  },
+  "devDependencies": {
+    "cypress": "^12.11.0",
+    "cypress-axe": "^1.4.0",
+    "cypress-html-validate": "^5.1.2",
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-chai-friendly": "^0.7.2",
+    "eslint-plugin-cypress": "^2.13.2",
+    "html-validate": "^7.15.1",
+    "prettier": "^2.8.7",
+    "vite": "^4.3.0"
+  },
+  "dependencies": {
+  }
+}

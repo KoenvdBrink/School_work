@@ -1,0 +1,67 @@
+<!--
+Assignment 3b (Other input types):
+
+There are 3 forms below, fix one problem in each of these forms.
+
+1. Make sure the productId field is hidden for the user (in form 1)
+2. Make sure the password is not shown when you type it (in form 2)
+3. Make sure you can select a file to upload (in form 3)
+-->
+
+<!-- Make changes to the code below -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Assignment-3b</title>
+  </head>
+  <body>
+    <h2>Form 1 <small>(Product form)</small></h2>
+    <form>
+      <h3>Wooden Chair</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus
+        velit, pulvinar tempus eros vitae, consectetur vehicula neque. Curabitur
+        venenatis et sem vel ullamcorper.
+      </p>
+
+      <input name="productId" value="b5s0h27h" />
+
+      <fieldset>
+        <legend>Order</legend>
+
+        <label for="amount">Amount</label>
+        <input id="amount" name="amount" type="number" />
+
+        <button>Add to cart</button>
+      </fieldset>
+    </form>
+
+    <h2>Form 2 <small>(Login form)</small></h2>
+    <form>
+      <fieldset>
+        <legend>Login</legend>
+
+        <label for="username">Username</label>
+        <input id="username" name="username" />
+
+        <label for="password">Password</label>
+
+        <input id="password" name="password" />
+
+        <button>Login</button>
+      </fieldset>
+    </form>
+
+    <h2>Form 2 <small>(File upload form)</small></h2>
+    <form>
+      <fieldset>
+        <legend>Upload file</legend>
+
+        <input name="file" />
+
+        <button>Upload</button>
+      </fieldset>
+    </form>
+  </body>
+</html>

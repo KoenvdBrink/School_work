@@ -1,0 +1,55 @@
+/* === DO NOT TOUCH THIS PIECE === */
+body {
+    margin: 0;
+    background-color: rgb(54, 54, 54);
+}
+
+h1, hr {
+    color: white;
+}
+
+.container {
+    position: relative;
+    height: 400px;
+    padding: 1px;
+}
+
+.line {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 0;
+    left: 0;
+    border: 1px solid white;
+}
+
+.animation {
+    display: inline-block;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: lightblue;
+    border: 3px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.clock {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.clock__needle {
+    position: absolute;
+    left: 50px;
+    width: 2px;
+    height: 50px;
+    transform-origin: bottom;
+    background: white;
+}
+/* === / === */
+
+/* Add your styles here */

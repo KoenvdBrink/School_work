@@ -1,0 +1,22 @@
+/* === DO NOT TOUCH THIS PIECE === */
+.responsive > * {
+    background: lightgrey;
+}
+/* === / === */
+
+.responsive--multicol {
+    column-count: 3;
+}
+
+.responsive--flexbox {
+    display: flex;
+}
+
+.responsive--flexbox * {
+    flex: 1;
+}
+
+.responsive--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}

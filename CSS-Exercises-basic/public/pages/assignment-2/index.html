@@ -1,0 +1,61 @@
+<!--
+Assignment 2 (CSS Selectors):
+
+1. Make the text "Assignment 2" red
+2. Make the text "Paragraph with class" green
+3. Make the text "Paragraph with ID" purple
+4. Make the text "Paragraph with title" orange
+5. Change all texts to italic using the font-style property
+6. Underline all headings using the text-decoration-line property
+7. Strike through "Paragraph 1" using the text-decoration-line property
+8. Make the three lines underneath "Heading 4" bold using the font-weight property
+9. Make the text "Child paragraph" yellow
+10. Set the background color of all texts in the section to grey
+11. Set only the color of "Hover me" cyan when hovered over with the cursor
+12. Set only the first letter of "1. Heading 6" lightblue
+13. (extra) Testing this site with axe (test 13) will result in errors. Try to figure out on how to solve them (know: this will brake the cypress test).
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Fundamentals</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Assignment 2</h1>
+      <p class="my-class">Paragraph with class</p>
+      <p id="my-id">Paragraph with ID</p>
+      <p title="my-title">Paragraph with title</p>
+
+      <hr />
+
+      <h2>Heading 2</h2>
+      <span>Paragraph 1</span>
+      <h3>Heading 3</h3>
+
+      <hr />
+
+      <h4>Heading 4</h4>
+      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+      <br />
+      <span>Cras venenatis interdum venenatis.</span><br />
+      <span>Pellentesque a nunc et dui gravida sollicitudin.</span>
+
+      <hr />
+
+      <section>
+        <span>Child paragraph</span>
+        <div><span>Descendant paragraph 1</span></div>
+        <a><span>Descendant paragraph 2</span></a>
+      </section>
+
+      <hr />
+
+      <h5>Hover me</h5>
+      <h6>1. Heading 6</h6>
+    </main>
+  </body>
+</html>

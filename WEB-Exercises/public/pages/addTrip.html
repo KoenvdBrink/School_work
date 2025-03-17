@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/addTrip.css" />
+    <title>FEP1 WEB01-01</title>
+    <script type="module" src="/src/addTrip.js"></script>
+  </head>
+  <body>
+    <header>
+      <section class="home">
+        <a href="/">
+          <img src="/images/32px-Home_free_icon.svg.png" alt="Home" />
+        </a>
+      </section>
+      <section class="clock">Klok</section>
+      <section class="utils">
+        <div class="weather-info"></div>
+        <div class="theme-info">Theme Info</div>
+      </section>
+    </header>
+    <main>
+      <h1>Trip toevoegen</h1>
+      <form>
+        <fieldset>
+          <legend>Mijn Trip</legend>
+          <p>
+              Title: 
+            <input id="key" name="title" type="text" required />
+          </p>
+          <p>
+              Datum: 
+            <input id="date" name="date" type="date" /></p>
+          <p>
+              Foto:
+            <input id="foto" name="image" type="text" /></p>
+          <p>
+              Beschrijving: 
+            <textarea id="description" name="description"></textarea>
+          </p>
+          <p>
+              Oordeel: 
+            <input id="rating" name="rating" type="range" min="0" max="5" value="0" />
+          </p>
+        </fieldset>
+
+        <section class="errormsg"></section>        
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!--
+Assignment 2 (Checkboxes, Radio buttons and Select-boxes):
+
+When you don't give an input element a type the type will default to 'text', but there are many other types to choose from.
+If you look at the form below you can see that some elements should (probably) not be text-input elements.
+
+1. First of all, look at the 2 inputs at the bottom.
+   Add the correct types to change these <input> elements into a 'submit' and 'reset' button
+   Do not change the <input> element to a <button> element!
+2a. Change the "gender" input into a radio-button group with at least 2 options
+2b. Make sure each of the radio button inputs has its own label
+2c. Make sure each of the radio button inputs has the same name (this will group them together)
+2d. Make sure each of the radio buttons has a value (this will be sent as the gender value when the form is submitted)
+3a. Change the 'Cat person or Dog person?' <input> element in the 'About me' section to a <select> box with at least 2 options.
+3b. Make sure the <select> box has the same name attribute as the removed <input> (name="animal")
+3c. Make sure all options have a value
+3d. Make sure you add another option to the <select> box with an empty value and the following text "--Please choose an option--"
+    (You should have at least 3 options now)
+3e. Make sure the <select> box has a label
+4a. Change the 'Favorite pizza toppings?' <input> element in the 'About me' section to a couple of checkboxes (at least 2) with pizza toppings to choose from.
+4b. Make sure the name of each checkbox stays the same (name="pizza")
+4c. Make sure each of the checkboxes has a value attribute.
+5. Fill in the form, click on submit and look at the URL
+-->
+
+<!-- Make changes to the code below -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Assignment-2</title>
+    <!-- Styles for the form -->
+    <link href="static/css/form.css" />
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Personal information</legend>
+
+        <label for="name">Name</label>
+        <input id="name" name="name" />
+        <hr />
+        <label for="age">Age</label>
+        <input id="age" name="age" />
+        <hr />
+        <fieldset>
+          <legend>Gender</legend>
+          <input name="gender" />
+        </fieldset>
+        <hr />
+        <label for="dob">Date of Birth</label>
+        <input id="dob" name="dob" />
+        <hr />
+        <label for="phone">Phone number</label>
+        <input id="phone" name="phone" />
+        <hr />
+        <label for="email">Email address</label>
+        <input id="email" name="email" />
+      </fieldset>
+
+      <fieldset>
+        <legend>About me</legend>
+
+        <label for="animal">Cat person or Dog person?</label>
+        <input id="animail" name="animal" />
+        <hr />
+        <fieldset>
+          <legend>Favorite pizza toppings?</legend>
+
+          <input name="pizza" />
+        </fieldset>
+        <hr />
+        <label for="color">Favorite Color?</label>
+        <input id="color" name="color" />
+      </fieldset>
+
+      <fieldset>
+        <legend>Actions</legend>
+
+        <input value="SUBMIT" />
+        <input value="RESET" />
+      </fieldset>
+    </form>
+  </body>
+</html>

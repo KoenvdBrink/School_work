@@ -1,0 +1,25 @@
+.home {
+  grid-area: home;
+  text-align: left;
+}
+
+.clock {
+  grid-area: clock;
+  text-align: center;
+  font-size: x-large;
+}
+.utils {
+  grid-area: utils;
+  text-align: right;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+    "home  clock  utils";
+
+  font-size: large;
+  padding: 0.4rem;
+}

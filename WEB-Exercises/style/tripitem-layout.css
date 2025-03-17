@@ -1,0 +1,23 @@
+.trips {
+  display: grid;
+  grid-auto-columns: auto;
+  grid-template-columns: repeat(auto-fill, 450px);
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.trip {
+  width: 400px;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.trip>img {
+  width: 100%;
+  height: auto;
+}
+
+.trip>time {
+  color: #5e5e5e;
+  font-size: small;
+}

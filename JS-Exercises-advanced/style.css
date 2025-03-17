@@ -1,0 +1,62 @@
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 2fr;
+  grid-gap: 1rem;
+  grid-template-areas: 
+    "main main"
+    "aside assignments"
+    "designstructure assignments"
+    ;
+}
+
+a {
+  font-weight: bold;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+#main {
+  grid-area: main;
+  background-color: lightgoldenrodyellow;
+  border-radius: 15px;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+#main h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#designstructure {
+  grid-area: designstructure;
+  background-color: bisque;
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+#assignments {
+  grid-area: assignments;
+  background-color: khaki;
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+aside {
+  grid-area: aside;
+}
+
+aside img {
+  width: 100%;
+  height: auto;
+}
+
+figcaption {
+  font-size: 0.8rem;
+  font-style: italic;
+}

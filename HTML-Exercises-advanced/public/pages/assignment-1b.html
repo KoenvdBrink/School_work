@@ -1,0 +1,51 @@
+<!--
+Assignment 1b (Forms, text input, labels and buttons):
+
+1. Look at the code for the 2 forms on this page
+2a. Press submit in the first form and Look at the URL
+2b. Press submit in the second form and Look at the URL
+2c. Try to understand why having multiple forms on a page can be tricky
+3. Make sure all input elements on the page are placed in ONE form with ONE submit button
+-->
+
+<!-- Make changes to the code below -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Assignment-1b</title>
+
+    <!-- You do not have to make changes to these styles below, this will be explained in the next lesson -->
+    <style>
+      label,
+      input,
+      textarea {
+        width: 100%;
+        margin: 6px auto;
+      }
+    </style>
+  </head>
+  <body>
+      <form>
+        <fieldset>
+          <legend>Update profile</legend>
+
+          <label> Name: <input name="name" value="Bob Ross" /> </label>
+          <label> Nickname: <input name="nick" value="Bob" /> </label>
+
+          <!-- A button without a type inside of a <form> has a default type of 'submit' -->
+          <button>Submit</button>
+        </fieldset>
+      </form>
+
+      <form>
+        <fieldset>
+          <legend>Update about</legend>
+
+          <label> Favorite color: <input name="color" value="Yellow" /> </label>
+          <label> Favorite animal: <input name="animal" value="Cat" /> </label>
+        </fieldset>
+        <button>Submit</button>
+      </form>
+  </body>
+</html>

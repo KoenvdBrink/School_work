@@ -1,0 +1,32 @@
+{
+  "name": "fep1-js03-new1",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:eslint": "eslint src/**/*.js cypress/e2e/**/* cypress/support/**/*",
+    "test:vitest": "vitest --ui",
+    "test:vitest-console": "vitest",
+    "test:vitest-run": "vitest --run",
+    "test:cypress": "cypress open",
+    "test:cypress-run-pages": "cypress run --headless --browser chrome --spec 'cypress/e2e/pages/*'"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^0.34.4",
+    "cypress": "^13.1.0",
+    "cypress-axe": "^1.5.0",
+    "eslint": "^8.48.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-chai-friendly": "^0.7.2",
+    "eslint-plugin-cypress": "^2.14.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-vitest": "^0.3.1",
+    "jsdom": "^22.1.0",
+    "vite": "^4.4.5",
+    "vitest": "^0.34.3"
+  }
+}

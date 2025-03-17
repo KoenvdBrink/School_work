@@ -1,0 +1,23 @@
+dialog {
+  background-color: gold;
+}
+
+dialog>time {
+  color: darkgray;
+}
+
+dialog .rating {
+  color: chocolate;
+}
+
+dialog>form {
+  text-align: center;
+}
+
+form>button {
+  background-color: blue;
+  color: white;
+  border-radius: 15px;
+  padding: 1rem;
+}
+

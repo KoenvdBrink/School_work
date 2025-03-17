@@ -1,0 +1,10 @@
+/* You do not have to make changes to these styles below, this will be explained in the next lesson */
+
+input:invalid:not([type="submit"]):not([type="button"]):not([type="reset"]) {
+    background-color: pink;
+    border: 1px solid red;
+}
+input:valid:not([type="submit"]):not([type="button"]):not([type="reset"]) {
+    background-color: #c2ffc8;
+    border: 1px solid green;
+}

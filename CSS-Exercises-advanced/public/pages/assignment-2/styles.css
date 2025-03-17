@@ -1,0 +1,10 @@
+/* === DO NOT TOUCH THIS PIECE === */
+.responsive-grid > * {
+    padding: 5px;
+    background: lightgrey;
+    border: black 1px solid;
+    border-radius: 10px;
+}
+/* === / === */
+
+/* Add your styles here */

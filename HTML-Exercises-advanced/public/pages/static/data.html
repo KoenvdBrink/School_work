@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Data retrieval</title>
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const results = (new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`)).exec(window.location.href);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        window.addEventListener('DOMContentLoaded', function () {
+            const value = getParameterByName('data');
+            if (value) {
+                document.querySelector('h1').innerText = 'Data retrieved!';
+                document.querySelector('p').innerText = value;
+            }
+        });
+    </script>
+  </head>
+  <body>
+    <h1>No data found!</h1>
+    <p></p>
+  </body>
+</html>

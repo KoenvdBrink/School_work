@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./images/hu-logo.ico">
+  <lint rel="stylesheet" href="./style/index.css">
+  <script type="module" src="./src/app.js"></script>
+  <title>FEP1 JS02-01</title>
+</head>
+<body>
+  <main>
+    <h1>FEP1 JS02-01 - JS Basics</h1>
+    <p>
+      Open de Terminal en start:
+      <p><code>npm run test:vitest</code></p>
+      <p>Voor assignment02_1 en assignment02_2 vind je de files die je zou moeten aanpassen in de
+        directory <code>/src/utils</code>.
+      </p>
+      <p>Voor assignment02_3 dien je te beginnen met de klasse Trip in de file <code>/src/model/Trip.js</code></p>
+      <p>Vervolgens dien je de methoden voor de klasse TripController (<code>/src/controller/TripController.js</code>) te geven.</p>
+      <p>Tenslotte ronden we deze assignment af met de <code>render</code> function in de file <code>/src/view/showTrip</code>. 
+        Merk op dat deze methode niet de TripController Klasse importeert, maar een instantie ervan welke in de file <code>/src/controller/index.js</code> wordt aangemaakt.
+        We maken hier dus gebruik van een zogenaamde <a href="https://en.wikipedia.org/wiki/Singleton_pattern">Singleton pattern</a> om ervoor te zorgen dat als we meerdere bestanden in de view laag hebben die
+        gebruik willen maken van de controller, ze allemaal gebruik maken van dezelfde instantie van de controller klasse.
+      </p>
+    </p>
+  </main>
+</body>
+</html>

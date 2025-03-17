@@ -1,0 +1,43 @@
+
+/* You do not have to make changes to these styles below, styles will be explained in the next lesson */
+
+.cats-banner {
+    height: 250px;
+    background: url("https://placekitten.com/300/300") repeat;
+}
+.tabs {
+    margin: 12px auto;
+}
+.tabs__heading {
+    user-select: none;
+    display: flex;
+}
+.tabs_tab {
+    border: 1px solid cadetblue;
+    border-bottom: none;
+    margin-right: 2px;
+    padding: 6px 12px;
+    background: #eee;
+    cursor: pointer;
+}
+.tabs_tab:hover {
+    background: lightblue;
+}
+.tabs_tab--active {
+    background: cadetblue;
+}
+.tabs_tab--disabled {
+    background: #ccc;
+    color: #555;
+    cursor: not-allowed;
+}
+.tabs__content {
+    border: 1px solid cadetblue;
+    padding: 12px;
+    min-height: 250px;
+}
+
+#liveContent {
+    border: 2px solid red;
+    padding: 12px;
+}

@@ -1,0 +1,45 @@
+<!--
+Assignment 4 (CSS Specificity):
+
+1. Make the text inside the section kind of red (#eb0050) using inheritance
+2. Override the span text color with blue
+3. Come up with a selector that makes the text "Hard to change" green without changing this html file or using !important (also after a page refresh)
+4. Come up with a selector that makes the text "Hard to change too" green without changing this html file or using !important (also after a page refresh)
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Fundamentals</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* DO NOT TOUCH */
+      p#my-paragraph.paragraph span#my-span.span {
+        color: #eb0050;
+      }
+
+      p.paragraph span.span {
+        color: #eb0050;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Assignment 4</h1>
+      <section>
+        Text
+        <span>node</span>
+        <p>Paragraph</p>
+        <a>Anchor</a>
+      </section>
+
+      <p id="my-paragraph" class="paragraph" title="Information">
+        <span id="my-span" class="span">Hard to change</span>
+      </p>
+
+      <p class="paragraph">
+        <span class="span">Hard to change too</span>
+      </p>
+    </main>
+  </body>
+</html>

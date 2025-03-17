@@ -1,0 +1,83 @@
+/* === DO NOT TOUCH THIS PIECE === */
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+h1 {
+    font-size: 1em;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: normal;
+    margin: 30px 0;
+    text-align: center;
+    text-decoration: underline #0df;
+}
+
+header {
+    background-color: #555;
+    border-radius: 0 0 16px 16px;
+    color: #fff;
+    margin: 0 24px;
+    padding: 10px;
+}
+
+header .logo img {
+    width: 128px;
+}
+
+.nav-item {
+    height: 24px;
+    margin-right: 24px;
+}
+
+.nav-item a {
+    color: #fff;
+    font-size: 1.3em;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.nav-item a:hover {
+    background-color: #fff;
+    border-radius: 5px;
+    color: #333;
+}
+
+#about {
+    margin: 0 0 0 24px;
+}
+
+#about p, #aboutmockup {
+    margin: 0 24px 24px 0;
+}
+
+#about img {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+#staff .staff-profile .headshot {
+    height: 80px;
+    padding-top: 10px;
+    width: 80px;
+}
+
+#staff .staff-profile .staff-name {
+    font-size: 2em;
+    white-space: nowrap;
+}
+
+#staff .staff-profile .staff-bio {
+    padding: 0 10px 10px 10px;
+}
+/* === / === */
+
+/* Add your styles here */

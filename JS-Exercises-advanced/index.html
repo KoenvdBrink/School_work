@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FEP1-JS03</title>
+  <script type="module" src="/index.js"></script>
+</head>
+
+<body>
+  <main>
+    <section id="main">
+      <h1>FEP1-JS03</h1>
+
+      Voordat we aan de opdrachten zelf beginnen, is het belangrijk eerst kort
+      bij de opbouw van de code still te staan, zodat je weet waar je wat kunt
+      vinden, alsook dat je deze structuur ook in je eigen code kunt
+      toepassen.
+    </section>
+
+    <article id="designstructure">
+      <h2>Code Design Structuur</h2>
+      De code design structuur welke we gebruiken is een structuur die je in
+      zijn basis ook in een aantal populaire JS frameworks (denk bijvoorbeeld
+      aan Angular of VUE) terug ziet en/of toe zou kunnen passen.
+      <br />
+      De code design structuur is als volgt:
+      <section>
+        <h3>De Html Pagina</h3>
+        <p>
+          In FEP1 bouwen we nog Multiple Page Applications (MPA) en geen
+          Single Page Applications (SPA). Dit betekent dat elke pagina een
+          eigen HTML pagina is. De index.html pagina is de enige pagina die
+          niet in de map
+          <strong>/pages</strong> staat, maar in de root van de applicatie.
+          <br />
+          De elke HTML pagina bevat in principe slechts een enkele script tag
+          die een enkel javascript bestand uit de map
+          <strong>/src/view/pages</strong> inlaadt. Dit javascript bestand is
+          verantwoordelijk voor het inladen van de verschillende onderdelen
+          van de pagina.
+        </p>
+      </section>
+      <section>
+        <h3>De Javascript /src/view/pages bestanden</h3>
+        <p>
+          De javascript bestanden in de map
+          <strong>/src/view/pages</strong> zijn verantwoordelijk voor de
+          weergave van een gehele pagina. Voor FEP1 zal zich dit beperken tot
+          het inladen van de verschillende <strong>componenten</strong>> van
+          de pagina. In het vervolg op dit vak waar we ons meer op SPA's
+          richten, zal de JS file ook een render functie bevatten die de code
+          genereert welke nu nog in de body van de html staat.
+
+          <br />
+          De componenten die we maken zullen JS klassen zijn. Dit maakt dat we
+          binnen onze JS pagina bestand van het component dat we willen
+          gebruiken eerst een nieuwe instantie moeten aanmaken (new
+          statement), wat meteen ook een rendering van het component zal
+          triggeren (taak van de constructor van het component).
+
+          <br />
+          Omdat onze JS Pagina nu nog geen eigen render methode bevat en
+          derhalve ook dus niks met de net aangemaakte instantie zal doen, zou
+          ESLint een error geven omdat er nu een ongebruikte variable is. Om
+          deze error te voorkomen, wordt de instantie van het component door
+          de JS Pagina geëxporteerd.
+        </p>
+      </section>
+      <section>
+        <h3>De Javascript /src/view/components bestanden</h3>
+        <p>
+          De javascript bestanden in de map
+          <strong>/src/view/components</strong>
+          zijn verantwoordelijk voor de weergave van een enkel onderdeel van
+          een pagina. Een onderdeel van een pagina noemen we een component, en
+          een component is over het algemeen een visueel gebied op de pagina
+          met een enkele taak en/of verantwoordelijkheid. Merk op dat een
+          pagina in principe ook een component is, maar dat we deze niet als
+          zodanig benoemen. Verder is het belangrijk om te weten dat een
+          component ook andere componenten kan bevatten.
+        </p>
+        <p>
+          Een component is een javascript class welke geëxporteerd wordt, die
+          een render functie bevat, die de HTML code genereert die het
+          component weergeeft. In FEP1 zal de constructor ervoor zorgen dat er
+          functies aangeroepen worden die uiteindelijk ook de render functie
+          triggeren, dan wel dat de constructor zelf de render functie
+          aanroept.
+        </p>
+        <p>
+          Let erop dat de render functie uitsluitend met de DOM (html code)
+          manipuleert. Als er data opgehaald en/of bewerkt moet worden, dan
+          gebeurt dit in een andere functie.
+        </p>
+      </section>
+
+      <section id="DAO">
+        <h3>Data Access Object (DAO)</h3>
+        <p>
+          Data Access Object (DAO) is een design pattern dat gebruikt wordt om
+          data op te halen en/of te bewerken, waarbij er gebruik gemaakt wordt
+          van een flexibele manier om de data op te halen en/of te bewerken.
+          Het voordeel is dat de code die de data nodig heeft niet hoeft te
+          weten waar en hoe de data is opgeslagen. Dit maakt dat de code die
+          de data nodig heeft niet aangepast hoeft te worden als de manier
+          waarop de data opgehaald en/of bewerkt wordt veranderd. Dit is een
+          belangrijk principe in de architectuur van een applicatie, omdat het
+          de onderhoudbaarheid van de code sterk verbeterd. Maar ook omdat het
+          de mogelijkheid bied om op runtime te bepalen waar de data staat.
+          <br />
+          In tegenstelling tot Java kent JavaScript geen Interface klassen. In
+          Javascript implementeer je het DAO pattern derhalve door een DAO
+          klasse te maken, die een constructor bevat die checkt of
+          this.constructor gelijk is aan de naam van de klasse zelf. Als dit
+          zo is, dan wordt er een nieuwe error aangemaakt. Dit zorgt ervoor
+          dat je niet direct een instantie van de DAO klasse kunt maken, de
+          DAO klasse dus een abstracte klasse is en je altijd een subklasse
+          van de DAO klasse moet implementeren om de DAO te gebruiken.
+          <br />
+          De klasse die de DAO implementeert erft van de DAO klasse en dient
+          de in de DAO klasse gedefinieerde methoden te implementeren.
+          Vervolgens maken we in het bestand index.js een instantie van de DAO
+          klasse aan en exporteren deze.
+          <br />
+          In de View laag importeren we de DAO instantie en gebruiken deze om
+          data op te halen en/of te bewerken. De View laag weet niet waar en
+          hoe de data is opgeslagen, maar weet wel dat de DAO de data kan
+          ophalen en/of bewerken. De View laag is dus de consumer van de DAO.
+        </p>
+        <figure>
+          <img src="/images/js_dao_structure.png" alt="DAO" />
+          <figcaption>JS DAO Structure</figcaption>
+        </figure>
+      </section>
+    </article>
+
+    <article id="assignments">
+      <h2>De Opdrachten</h2>
+      <p>
+        In deze opdracht ligt de focus op het fetch statement. Dat de code
+        werkt is belangrijker dan de opmaak en de architectuur. Merk op dat de
+        filenamen nu geen goede filenames zijn omdat ze naar de opdracht
+        verwijzen. Gebruik bij je eigen project straks goede betekenisvolle
+        (Engelstalige!!!) filenamen.
+      </p>
+      <section>
+        <h3>Fetch basics</h3>
+        <p>
+          <strong>Assignment 1</strong>: De pagina
+          <a href="/pages/assignment-1.html">/pages/assignment-1.html</a>
+          dient een afbeelding van een hond weer te geven, welke door een
+          externe API bepaald wordt. Hiervoor moet je in de functie
+          <strong>fetchAssignment1</strong> in de file
+          `<strong>/src/view/components/assignment1.js</strong>` afmaken.
+        <figure>
+          <img src="/images/screenshot-assignment1.png" alt="Assignment 1" />
+          <figcaption>De pagina van assignment 1</figcaption>
+        </figure>
+        </p>
+        <p>
+          Voor deze assignment is een cypress tests opgesteld. Start hiervoor
+          eerst de locale dev server met `npm run dev` en start vervolgens de
+          cypress tests met `npm run test:cypress`.
+
+          <br />
+          Je kunt trouwens ook de kwaliteit van je code testen met `npm run
+          test:eslint`.
+        </p>
+
+        <p>
+          <strong>Assignment 2</strong>: De pagina
+          <a href="/pages/assignment-2.html">/pages/assignment-2.html</a>
+          dient een array van terriers weer te geven, welke door een externe
+          API bepaald wordt. Hiervoor moet je in de functie
+          <strong>fetchAssignment2</strong> in de file
+          `<strong>/src/view/components/assignment2.js</strong>` afmaken.
+        <figure>
+          <img src="/images/screenshot-assignment2.png" alt="Assignment 2" />
+          <figcaption>De pagina van assignment 2</figcaption>
+        </figure>
+        </p>
+        <p>
+          Voor deze assignment is een cypress tests opgesteld. Start hiervoor
+          eerst de locale dev server met `npm run dev` en start vervolgens de
+          cypress tests met `npm run test:cypress`.
+
+          <br />
+          Je kunt trouwens ook de kwaliteit van je code testen met `npm run
+          test:eslint`.
+        </p>
+      </section>
+      <section>
+        <h3>Architectuur</h3>
+        <p>
+          Nu dat je bekend bent met de werking van het fetch statement, is het
+          tijd om de architectuur van de code te verbeteren. We doen dit nu
+          met twee pagina's over katten.
+          <br />
+          De eerste pagina
+          <a href="/pages/assignment-3ab.html">/pages/assignment-3ab.html</a>geeft ons een overzicht van alle
+          kattenrassen die onze API kent,
+          als ook het aantal rassen.
+        <figure>
+          <img src="/images/screenshot-assignment3ab.png" alt="Assignment 3ab" />
+          <figcaption>De pagina van assignment 3a</figcaption>
+        </figure>
+        <br />
+        Vanuit de eerste pagina kun je door op een ras te klikken naar de
+        tweede pagina gaan (<a href="/pages/assignment-3c.html">/pages/assignment-3c.html</a>), waar je een afbeelding
+        van een kat van het gekozen ras ziet.
+        <figure>
+          <img src="/images/screenshot-assignment3c.png" alt="Assignment 3c" />
+          <figcaption>De pagina van assignment 3c</figcaption>
+        </figure>
+        </p>
+        <p>
+          Voor deze assignment is een cypress tests opgesteld. Start hiervoor
+          eerst de locale dev server met `npm run dev` en start vervolgens de
+          cypress tests met `npm run test:cypress`.
+          <strong>Echter deze tests zijn onafhankelijk van de versie waaraan je
+            werkt.</strong>
+          Zorg er dus voor dat de tests van assignment3 blijven slagen als je
+          van versie veranderd.
+          <strong>De test voor assignment3c zal met versie 1 niet slagen</strong>
+
+          <br />
+          Je kunt trouwens ook de kwaliteit van je code testen met `npm run
+          test:eslint`.
+        </p>
+
+        <section id="assignment3version1">
+          <p>
+            <strong>Versie 1:</strong> De eerste versie van de code dient in
+            het bestand
+            <strong>/src/view/pages/app-assignment3ab.js</strong> de volgende
+            imports te bevatten:
+          </p>
+          <pre>
+          import Assignment3a from '../components/assignment3a.v1';
+          import Assignment3b from '../components/assignment3b.v1';
+        </pre>
+          <p>
+            De app-assignment3ab.js file maakt ook in de
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API" target="_blank">localstorage</a>
+            van de webbrowser voor je een lijst met katten aan.
+          <figure>
+            <img src="/images/screenshot-assignment3ab-localstorage.png" alt="Localstorage" />
+            <figcaption>De localstorage van de browser</figcaption>
+          </figure>
+          Merk op dat het gebruik van de local- en sessionstorage voor nu ok
+          is om in dit vak te gebruiken, dit omdat hun API best gemakkelijk
+          is en de API van de beter alternatieven (zoals cache en indexeddb)
+          buiten de scope van dit vak valt. Maar hou er rekening mee dat je
+          de local- en sessionstorage in het vervolg van dit vak in een
+          promise zou moeten wrappen (zie oefening 4).
+          </p>
+          <p>Maak nu in de bestanden</p>
+          <ul>
+            <li>
+              <strong>/src/view/components/assignment3a.v1.js</strong> en
+            </li>
+            <li><strong>/src/view/components/assignment3b.v1.js</strong></li>
+          </ul>
+          <p>
+            de code af door de functies <strong>getCats</strong> en
+            <strong>getNumberOfCats</strong> af te maken.
+            <br />
+            Aan assignment3c.v1.js hoef je in deze versie nog niks te doen.
+          </p>
+        </section>
+        <section id="assignment3version2">
+          <p>
+            <strong>Versie 2:</strong>
+            In deze versie vervangen we de localstorage door een backend API.
+            De backend die we gaan gebruiken wordt gegeven door de site
+            <a href="https://api-ninjas.com/">API Ninjas</a>. Om hun API te
+            kunnen gebruiken moet je eerst een gratis account op hun site
+            aanmaken, zodat je een API key krijgt. Deze API key moet je in de
+            file <strong>/assignment.config.json</strong> plaatsen.
+            <br />
+          </p>
+          <pre>
+          {
+            "apiKey": "{YOUR API KEY}"
+          }
+        </pre>
+          <p>
+            Pas vervolgens in de imports van de file
+            <strong>/src/view/pages/app-assignment3ab.js</strong> aan, zodat
+            deze nu de v2 bestanden van assignment3a en assignment3b
+            importeert.
+            <br />
+            Maak nu in de bestanden
+          </p>
+          <ul>
+            <li>
+              <strong>/src/view/components/assignment3a.v2.js</strong> en
+            </li>
+            <li><strong>/src/view/components/assignment3b.v2.js</strong></li>
+          </ul>
+          <p>
+            de code af door de functies <strong>getCats</strong> en
+            <strong>getNumberOfCats</strong> af te maken. Deze dienen hun data
+            nu echter niet meer vanuit de localstorage op te halen, maar via
+            een fetch commando vanuit de Ninja API. De te gebruiken URL staat
+            al in de code en is een truc voor deze API, om de gehele dataset
+            uit te lezen. Bestudeer de API documentatie op de site van
+            <a href="https://api-ninjas.com/">API Ninjas</a> om te zien hoe
+            jij je API-key in de fetch moet verwerken en hoe je de data kunt
+            aanvragen. Merk op dat hun Javascript code voorbeeld gebaseerd is
+            op
+            <strong><a href="https://jquery.com/">JQuery</a>, een library die je
+              NIET meer zou moeten gebruiken.</strong>
+            Gebruik in plaats daarvan de fetch API. <br />
+            Het resultaat zou precies gelijk moeten zijn aan dat van versie 1.
+            Je kunt dus deze pagina met dezelfde cypress test testen.
+          </p>
+          <p>
+            Pas vervolgens in de import van de file
+            <strong>/src/view/pages/app-assignment3c.js</strong> aan door ook
+            hier nu versie 2 van assignment 3c te importeren. Implementeer
+            vervolgens in de file
+            <strong>/src/view/components/assignment3c.v2.js</strong> de
+            functie <strong>getCat</strong>. Deze functie wordt door de
+            constructor aangeroepen en krijgt de naam van de weer te geven kat
+            mee, welke de constructor uit de URL de gehaald. De functie dient
+            vervolgens de data van de kat op te halen en deze in het attribuut
+            catData op te slaan en daarna de render functie aan te roepen.
+          </p>
+        </section>
+        <section id="assignment3version3">
+          <p>
+            <strong>Versie 3:</strong>
+            Voor de refactoring van versie 1 naar versie 2 is in principe voor
+            de pagina `assignment-3ab.html` alleen onze API gewijzigd is (van
+            localstorage naar een fetch), echter het resultaat is gelijk
+            gebleven. De pagina ziet er immers nog steeds hetzelfde eruit.
+            Stel dat we nu op de server een wijziging in de API zouden
+            aanbrengen bijvoorbeeld door de JSON structuur aan te passen, en
+            we niet op 2 plekken maar op 15 plekken in de code gebruik maken
+            van de API. Op hoeveel plekken zou je dan je applicatie hiervoor
+            moeten wijzigen? <br />
+            Het antwoord op deze retorische vraag is uiteraard 15, wat best
+            veel is. Om dit te voorkomen gaan we de goed gebruik maken van het
+            'separation of concerns' principe. Hiermee kunnen we het aantal
+            plekken waarin we bij wijzigingen in de API onze code moeten
+            aanpassen sterk terugbrengen, wat maakt dat de kans op fouten in
+            onze code wordt verkleind. <br />
+            Om 'separation of concerns' toe te passen, gaan we de taken van de
+            klassen in onze code scheiden in klassen die een
+            verantwoordelijkheid hebben met betrekking tot de weergave (de
+            **VIEW**) en klassen die verantwoordelijk zijn voor het beheer van
+            de data en dit als een dienst aanbieden (**SERVICE**). <br />
+            Code van de **'VIEW-laag'** hoort in de map `/src/view` te staan.
+            Deze code mag dan ook geen fetch statements bevatten en/of
+            statements met betrekking tot de locale dataopslag (denk aan
+            local- en sessionstorage). Data die deze code nodig heeft, dient
+            de view laag op te vragen bij een **'SERVICE'** uit de
+            **'SERVICE-laag'**. <br />
+            De view laag weet per definitie niet waar en hoe de data is
+            opgeslagen, dus hoe de service laag deze data ophaalt is voor de
+            view laag niet van belang. Dat maakt dat de per definitie de
+            service laag altijd een promise teruggeeft aan de view laag, welke
+            door de view laag verder afgehandeld moet worden. De view laag is
+            dus de promise consumer van de service laag. <br />
+          </p>
+          <p>
+            De service laag daartegen weet wel waar en hoe de data is
+            opgeslagen, maar de service laag zou niks van de view hoeven te
+            weten. Dat maakt dat statements met betrekking tot de DOM (zoals
+            document.querySelector etc) niet in de service laag thuis horen.
+            Data die de service laag van de view nodig is moeten door de view
+            laag aangeleverd worden. <br />
+          </p>
+          <p>
+            Pas voor deze assignment de bestanden 'app-assignment3ab.js' en
+            'app-assignment3c.js' aan zodat deze de v3 bestanden importeren.
+            Geef vervolgens implementatie van de methoden getCatNames en
+            getCat in de file `/src/service/CatsService.v1.js`. Pas hierna de
+            bestanden 'assignment3a.v3.js', 'assignment3b.v3.js' en
+            'assignment3c.v3.js' aan zodat deze de CatsService gebruiken en
+            geen fetch statements meer bevatten.
+          </p>
+        </section>
+      </section>
+      <section>
+        <h3>Security</h3>
+        <p>
+          Onze Assignment 3 oplossing maakt gebruik van de API die ons door de
+          site API Nijna's wordt aangeboden. Hiervoor hebben we echter eerst
+          een API-Key moeten aanmaken, welke we ook mee moeten geven in onze
+          fetch statements.
+        </p>
+        <p>
+          API-Key / CORS: We hebben nu een API key die het ons toestaat om de
+          data op te halen. Bekijk de pagina van je buurman in de browser (zou
+          je even achter zijn laptop moeten doen). Kun je via de dev tools
+          zijn API key achterhalen? Kun je in jou applicatie gebruik maken van
+          zijn API key? Hoe kun je dit voorkomen => API key aan domain
+          koppelen (gebeurt bijvoorbeeld bij Google Maps, waardoor ik vanuit
+          de frontend de kaart kan ophalen, maar alleen als de frontend door
+          een machine gehost wordt die ik bij de Maps API settings heb
+          geconfigureerd), maar daarvoor moet je de server API beheren. Ander
+          alternatief is om de API via de backend op te halen en deze via een
+          eigen REST API van onze backend aan te bieden => Waarom zou iemand
+          anders dan niet onze server gebruiken om alsnog gratis bij de data
+          te komen => CORS. => Is het dan niet handig om altijd alleen data
+          via de eigen server op te halen? => Nee; extra CPU cycles => kosten,
+          extra tijd voor gebruiker, ... Kortom je moet goede onderbouwde
+          keuzes maken van hoe je de communicatie van data van je site
+          organiseert.
+        </p>
+      </section>
+
+      <section>
+        <h3>Promises</h3>
+        <p>
+          <a href="/pages/assignment-4.html">Assignment 4</a> is bedoeld als
+          een kleine applicatie om je crypto portefeuille bij te houden. Veel
+          gebruikers willen informatie over crypto portefeuille niet op het
+          internet opslaan, terwijl anderen dat voor het gemak juist wel
+          willen.
+          <br />
+          Daarom zou de gebruiker straks moeten kunnen kiezen waar hij zijn of
+          haar data opslaat. In de localstorage of via de REST API op de
+          server.
+          <br />
+          Voor deze assignment maken we derhalve gebruik van een DAO. De
+          klasse CryptoDao is een abstracte klasse die al voor je is gemaakt.
+          De klasse CryptoDaoRestImpl is een implementatie van de DAO klasse
+          (alleen ontbreekt voor deze klasse nog een werkende backend, maar
+          dat is niet de opdracht). De klasse CryptoDaoLocalStorageImpl is een
+          implementatie van de DAO klasse die gebruik maakt van de
+          localstorage van de browser. Deze klasse moet echter nog
+          geïmplementeerd worden.
+          <br />
+          In de file /src/service/index.js zie je dat beide implementaties van
+          de DAO klasse geïmporteerd worden en ook worden aangemaakt, maar dat
+          de waarde van de variable service bepaald welke DAO implementatie
+          gebruikt wordt en in de variable cryptoService wordt opgeslagen.
+          <br />
+          De cryptoService zelf wordt vervolgens gebruikt door de controller.
+          Dit omdat de service laag bijvoorbeeld bij het toevoegen van een
+          crypto gewoon een nieuwe crypto record aanmaakt, terwijl de
+          applicatie ervan uit gaat dat er maar een enkele record van een
+          bepaald crypto er is, en als je een nieuwe record aanmaakt de
+          hoeveelheid gewoon bij de bestaande record opgeteld moet worden
+          (business logic dus die in een controller thuis hoort).
+          <br />
+          Dit maakt dat de view laag dus niet de service laag direct aanroept,
+          maar de controller.
+          <br />
+          <strong>Implementeer nu de CryptoDaoLocalStorageImpl klasse,
+            zodat een gebruiker de app kan gebruiken door data lokaal op zijn
+            machine op te slaan.
+            <br />
+            Test je code met `npm run test:vitest`, dan wel door zelf met de
+            app te spelen.</strong>
+        </p>
+      </section>
+    </article>
+
+    <aside>
+      <figure>
+        <img src="/images/Frontend-Architectuur.png" alt="Frontend Architectuur" />
+        <figcaption>De Frontend Architectuur van FEP1</figcaption>
+      </figure>
+    </aside>
+  </main>
+</body>
+
+</html>

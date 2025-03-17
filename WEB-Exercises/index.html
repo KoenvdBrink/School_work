@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/hu-logo.ico" />
+    <link rel="stylesheet" href="./style/index.css" />
+    <title>FEP1 WEB01-01</title>
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <header>
+      <section class="home">
+        <a href="/">
+          <img src="./images/32px-Home_free_icon.svg.png" alt="Home" />
+        </a>
+      </section>
+      <section class="clock">Klok</section>
+      <section class="utils">
+        <div class="weather-info"></div>
+        <div class="theme-info">Theme Info</div>
+      </section>
+    </header>
+    <main>
+      <span id="pagetitle"></span>
+      <p class="trips"></p>
+      <form>
+      </form>
+
+
+      <aside>
+        <fieldset>
+          <legend>Filters</legend>
+          <label for="ratingFilter">Filter op rating:</label>
+          <input type="checkbox" id="ratingFilter">
+          <label for="rating"></label><input id="ratingRangeFilter" type="range" min="0" max="5" disabled>
+        </fieldset>
+      </aside>
+    </main>
+
+    <template id="trip-template">
+      <article id="tripTitle" class="trip">
+        <time datetime="">Date</time>
+        <h2>Trip Title</h2>
+        <img alt="sfeer foto" />
+        <p class="description">review</p>
+        <p class="rating">rating</p>
+      </article>
+    </template>
+
+    <dialog>
+      <time datetime="">Date</time>
+      <p>
+        <button><img id="editBtn" src="./images/32px-edit_icon.png" alt="aanpassen"></button>
+        <button><img id="delBtn" src="./images/32px-delete_icon.png" alt="verwijderen"></button>
+      </p>
+      <h2>Trip Title</h2>
+      <img id="tripfoto" alt="sfeer foto" />
+      <p class="description">review</p>
+      <p class="rating">rating</p>
+      <form method="dialog">
+        <button>Sluit</button>
+      </form>
+    </dialog>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+.addBtn {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+
+  font-size: 4rem;
+  border-radius: 50%;
+
+  background-color: lightsalmon;
+}
+
+#pagetitle {
+  text-align: center;
+  grid-area: title;
+}
+
+.trips {
+  grid-area: trips;
+}
+
+aside {
+  grid-area: filters;
+  background-color: bisque;
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr;
+  grid-template-areas: 
+    "title   title title title"
+    "filters trips trips trips";
+  border-radius: 15px;
+}
+
