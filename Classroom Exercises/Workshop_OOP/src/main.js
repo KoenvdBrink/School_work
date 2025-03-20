@@ -284,6 +284,13 @@ const vrijePlekken = (data) => {
     }
     return places
 }
+const occupiedPlaces = (data) => {
+  let places = 0
+  data.forEach(facility => {
+    places += facility.occupiedPlaces
+  })
+  return places
+}
 const facilityNames = (data) => {
     let names = []
     for (let i = 0; i < data.length; i++) {
@@ -292,7 +299,65 @@ const facilityNames = (data) => {
     }
     return names
 }
+const parkingtable = document.querySelector('#parkingTable tbody')
+const parkingRowTemplate = document.getElementById('parkingRowTemplate')
 
-console.log(lengteArray(bicycleParking))
-console.log(vrijePlekken(bicycleParking))
-console.log(facilityNames(bicycleParking))
+const valueColour = (HTMLElement) => {
+  if (HTMLElement < 50) {
+    HTMLElement.classList.add("low")
+  }
+  else if (HTMLElement > 150) {
+    HTMLElement.classList.add("high")
+  }
+  else {
+    HTMLElement.classList.add("medium")
+  }
+}
+const mergeparkingdata = (data) => {
+  newData = []
+  data.forEach(facility => {
+    if (!(facility.facilityName.slice(-4).includes("Hoog") || facility.facilityName.slice(-4).includes("Laag"))) {
+      newData.push(facility)
+    }
+    else if (facility.facilityName.slice(-4).includes("Hoog")) {
+      
+    }
+    else {
+
+    }
+  })
+}
+
+bicycleParking.forEach(facility => {
+  const facilityRow = parkingRowTemplate.content.cloneNode(true);
+  const facilityName = facilityRow.getElementById("naam");
+  const facilityPlaces = facilityRow.getElementById("totalenplekken");
+  const facilityPlacesHoog = facilityRow.querySelector("#totalenplekkenhoog")
+  const facilityPlacesLaag = facilityRow.querySelector("#totalenplekkenlaag")
+  const facilityFreePlaces = facilityRow.getElementById("vrijeplekken");
+  const facilityFreePlacesHoog = facilityRow.querySelector("#vrijeplekkenhoog")
+  const facilityFreePlacesLaag = facilityRow.querySelector("#vrijeplekkenlaag")
+  if (!(facility.facilityName.includes("Hoog") || facility.facilityName.slice(-4).includes("Laag"))) {
+    facilityName.textContent = facility.facilityName;
+    facilityPlaces.textContent = facility.totalPlaces;
+    facilityFreePlaces.textContent = facility.freePlaces;
+    valueColour(facilityFreePlaces)
+  }
+  else if (facility.facilityName.slice(-4).includes("Hoog")) {
+    facilityPlacesHoog.textContent = facility.totalPlaces
+    facilityFreePlacesHoog.textContent = facility.freePlaces
+    valueColour(facilityFreePlacesHoog)
+  }
+  else {
+    facilityPlacesLaag.textContent = facility.totalPlaces
+    facilityFreePlacesLaag.textContent = facility.freePlaces
+    valueColour(facilityFreePlacesLaag)
+  }
+  parkingtable.appendChild(facilityRow)
+});
+
+
+const freePlaceWindow = document.querySelector('#total-occupied-places')
+const occupiedPlaceWindow = document.querySelector('#total-free-places')
+freePlaceWindow.textContent = vrijePlekken(bicycleParking)
+occupiedPlaceWindow.textContent = occupiedPlaces(bicycleParking)

@@ -3,9 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <title>JS Test</title>
+    <link rel="stylesheet" href="styles.css">
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
-    Demo
+    <div class="floating-windows-container">
+      <div class="floating-window">
+          <h3>Totaal Vrije Plekken</h3>
+          <div id="total-free-places" class="number-display">0</div>
+      </div>
+      <div class="floating-window">
+          <h3>Totaal Bezette Plekken</h3>
+          <div id="total-occupied-places" class="number-display">0</div>
+      </div>
+  </div>
+    <table id="parkingTable">
+      <thead>
+        <th>Naam</th>
+        <th>Totalen plekken</th>
+        <th>Totalen plekken Hoog</th>
+        <th>Totalen plekken Laag</th>
+        <th>Vrije Plekken</th>
+        <th>Vrije Plekken Hoog</th>
+        <th>Vrije Plekken Laag</th>
+      </thead>
+      <tbody> 
+      </tbody>
+    </table>
   </body>
+  <template id="parkingRowTemplate">
+    <tr>
+      <td id="naam" class="mainFacility"></td>
+      <td id="totalenplekken" class="mainFacility"></td>
+      <td id="totalenplekkenhoog"></td>
+      <td id="totalenplekkenlaag"></td>
+      <td id="vrijeplekken" class="mainFacility"></td>
+      <td id="vrijeplekkenhoog"></td>
+      <td id="vrijeplekkenlaag"></td>
+    </tr>
+  </template>
 </html>
