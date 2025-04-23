@@ -1,0 +1,5 @@
+Feedback Sprint review 2
+Andere domein model dan de andere groep, maar werkt / klopt alsnog
+Waarom staat functionaliteteit in een aparte branch
+Wat ze graag wil is dat we alleen dingen laten zien die op de main branch staan, anders is het nog mogelijk dat functionaliteit verandert en je moet alleen laten zien wat helemaal af en werkend is. Want de werkgever wilt niet ineens zien dat er iets is veranderd.
+Opdrachtgever is enthousiast tot nu toe over het werk dat we hebben gedaan.
